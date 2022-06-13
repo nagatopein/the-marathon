@@ -23,15 +23,15 @@
                     <div class="col-12 border-bottom border-dark padding">
                         <h2>Search for a City:</h2>
                         <div class="padding">
-                            <input type="text" placeholder="search..." class="col-12">
+                            <input id="search" type="text" placeholder="search..." class="col-12">
                         </div>
                         <div class="padding">
                             <button type="button" class="btn btn-primary col-12">Search</button>
                         </div>
                     </div>
                     <div class="col-12">
-                        <div class="padding">
-                            <p class="badge rounded-pill bg-secondary text-white">Charlotte</p>
+                        <div id="showbadge" class="padding">
+                            <p class="badge rounded-pill bg-secondary text-white col-12">Charlotte</p>
                         </div>
                     </div>
                 </div>
@@ -39,11 +39,13 @@
             <div class="col-sm-8">
                 <div class="row">
                     <div class="col-12 border border-dark">
-                        <h2>Charlotte (6/11/2022)</h2>
-                        <p>Temp: </p>
-                        <p>Wind: </p>
-                        <p>Humidity: </p>
-                        <p>UV Index: </p>
+                        <h2 id="city"></h2>
+                        <h5 id="date"></h5>
+
+                        <p>Temp: <span id="temp"></span></p>
+                        <p>Wind: <span id="wind"></span></p>
+                        <p>Humidity: <span id="humidity"></span></p>
+                        <p>UV Index: <span id="uvi"></span></p>
                     </div>
                     <div class="col-12">
                         <div class="row">
