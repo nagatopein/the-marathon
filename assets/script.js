@@ -40,7 +40,7 @@ var getGeoCode = function () {
             getCurrentWeather(geoData);
 
 
-            // var cityDisplay = document.getElementById("city").innerHTML = city;
+            var cityDisplay = document.getElementById("city").innerHTML = city;
 
             // var badgeArea = document.getElementById("showbadge");
             // var cityBadge = document.createElement("p").classList;
