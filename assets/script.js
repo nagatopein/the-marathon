@@ -14,7 +14,7 @@ citySearch.addEventListener('click', function () {
     console.log(searchParameter);
 
 
-    var geoCode = `http://api.openweathermap.org/geo/1.0/direct?q=${searchParameter},US&${apiKey}`;
+    var geoCode = `https://api.openweathermap.org/geo/1.0/direct?q=${searchParameter},US&${apiKey}`;
     getGeoCode(geoCode);
 });
 
@@ -65,7 +65,7 @@ var getCurrentWeather = async function () {
             // console.log("weather data", data);
             var currentDayWeather = data;
             console.log(currentDayWeather);
-            var currentTemp = currentDayWeather.current.temp + " °F";
+            var currentTemp = currentDayWeather.current.temp + "°F";
             var currentHumidity = currentDayWeather.current.humidity + " %";
             var currentUvi = currentDayWeather.current.uvi;
             var currentWind = currentDayWeather.current.wind_speed + " MPH";
