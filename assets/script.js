@@ -14,7 +14,7 @@ citySearch.addEventListener('click', function () {
     console.log(searchParameter);
 
 
-    var geoCode = `http://api.openweathermap.org/geo/1.0/direct?q=${searchParameter},US&${apiKey}`;
+    var geoCode = `https://api.openweathermap.org/geo/1.0/direct?q=${searchParameter},US&${apiKey}`;
     getGeoCode(geoCode);
 });
 
