@@ -84,6 +84,15 @@ var getCurrentWeather = async function () {
 var fiveDayForecast = function (forecastData) {
     var week = forecastData.daily.slice(0, 5);
     console.log(week);
+    for (i = 0; i < week.length; i++) {
+        var temp = week[i].temp.max;
+        var wind = week[i].wind_speed;
+        var humidity = week[i].humidity;
+        var icon = week[i].weather[0].icon;
+        // console.log(i, ' ' + temp, ', ' + wind, ', ' + humidity, ', ' + icon);
+        var dayOfWeek = document.getElementById(i);
+        console.log(dayOfWeek);
+    }
 }
 
 var today = new Date();
