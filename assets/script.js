@@ -41,7 +41,7 @@ var getGeoCode = async function (geoCode) {
 
             localStorage.setItem("coordinates", JSON.stringify(geoArr));
 
-            document.getElementById("city").innerHTML = city;
+            document.getElementById("city").innerHTML = city + " (" + today + ")";
 
             getCurrentWeather(geoObj);
         });
@@ -70,6 +70,13 @@ var getCurrentWeather = async function () {
             var currentUvi = currentDayWeather.current.uvi;
             var currentWind = currentDayWeather.current.wind_speed + " MPH";
 
+            var icon = currentDayWeather.current.weather[0].icon;
+            console.log(icon);
+            var weatherImage = document.getElementById('weatherIcon');
+            console.log(weatherImage);
+            weatherImage.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+            // console.log(image);
+
             var charlotteTemp = document.getElementById("temp").innerHTML = currentTemp;
             var charlotteWind = document.getElementById("wind").innerHTML = currentWind;
             var charlotteHumidity = document.getElementById("humidity").innerHTML = currentHumidity;
@@ -83,27 +90,32 @@ var getCurrentWeather = async function () {
 
 var fiveDayForecast = function (forecastData) {
     var week = forecastData.daily.slice(0, 5);
-    console.log(week);
+    // console.log(week);
     for (i = 0; i < week.length; i++) {
         var temp = week[i].temp.max;
         var wind = week[i].wind_speed;
         var humidity = week[i].humidity;
         var icon = week[i].weather[0].icon;
-        // console.log(i, ' ' + temp, ', ' + wind, ', ' + humidity, ', ' + icon);
-        var dayOfWeek = document.getElementById(i);
-        console.log(dayOfWeek);
+
+        document.getElementById(i).innerHTML =
+            // '<h2>' + today++ + '</h2>' +
+            '<img src=' + `https://openweathermap.org/img/wn/${icon}@2x.png` + ' height=40% width=40%>' + '</img>' +
+            '<p>' + 'Temp: ' + temp + '°F' + '</p>' +
+            '<p>' + 'Wind: ' + wind + ' MPH' + '</p>' +
+            '<p>' + 'Humidity: ' + humidity + '%' + '</p>';
+
     }
 }
 
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0
 var yyyy = today.getFullYear();
 
 today = mm + '/' + dd + '/' + yyyy;
 console.log(today);
 
-document.getElementById("date").innerHTML = today;
+document.getElementById("city").innerHTML = today;
 
 
 
@@ -159,6 +171,19 @@ document.getElementById("date").innerHTML = today;
 
 
 
+
+        // var date = new Date();
+        // var dd = String(date.getDate() + i).padStart(2, '0');
+        // var mm = String(date.getMonth() + 1).padStart(2, '0');
+        // var yyyy = date.getFullYear();
+
+        // date = mm + '/' + dd + '/' + yyyy;
+        // console.log(date);
+
+        // var d = new Date(date.toDateString());
+
+        // d.setDate(d.getDate() + i);
+        // console.log(d);
 
 
 
